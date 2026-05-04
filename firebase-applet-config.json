@@ -1,0 +1,10 @@
+{
+  "projectId": "haqquran",
+  "appId": "1:731651355983:web:95ccc953dc3a9a5cec013a",
+  "apiKey": "AIzaSyBFoOhbLt_wOyFj2eDeCaKLwK8UdctxWO4",
+  "authDomain": "haqquran.firebaseapp.com",
+  "firestoreDatabaseId": "haqquran-main",
+  "storageBucket": "haqquran.firebasestorage.app",
+  "messagingSenderId": "731651355983",
+  "measurementId": ""
+}

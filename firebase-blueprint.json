@@ -1,0 +1,94 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "bio": { "type": "string" },
+        "isAdmin": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "createdAt"]
+    },
+    "Post": {
+      "title": "Community Post",
+      "description": "A post shared in the community feed",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userPhoto": { "type": "string" },
+        "content": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "hashtags": { "type": "array", "items": { "type": "string" } },
+        "likesCount": { "type": "integer" },
+        "commentsCount": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "content", "createdAt"]
+    },
+    "Comment": {
+      "title": "Post Comment",
+      "description": "Comment on a post",
+      "type": "object",
+      "properties": {
+        "postId": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["postId", "userId", "content", "createdAt"]
+    },
+    "Like": {
+      "title": "Post Like",
+      "description": "Reaction to a post",
+      "type": "object",
+      "properties": {
+        "postId": { "type": "string" },
+        "userId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["postId", "userId"]
+    },
+    "Bookmark": {
+      "title": "User Bookmark",
+      "description": "Saved Ayah or Hadith",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string", "enum": ["ayah", "hadith"] },
+        "reference": { "type": "string" },
+        "content": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "posts/{postId}": {
+      "schema": "Post",
+      "description": "Community posts"
+    },
+    "posts/{postId}/comments/{commentId}": {
+      "schema": "Comment",
+      "description": "Comments on a post"
+    },
+    "posts/{postId}/likes/{userId}": {
+      "schema": "Like",
+      "description": "Likes on a post"
+    },
+    "users/{userId}/bookmarks/{bookmarkId}": {
+      "schema": "Bookmark",
+      "description": "User bookmarks"
+    }
+  }
+}

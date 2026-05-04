@@ -1,0 +1,12 @@
+{
+  "name": "HaqQuran",
+  "description": "A comprehensive Islamic application for Quran, Hadith, Prayer, and Islamic sharing. Features include Daily Ayah, Al-Quran with Audio, Prayer Times, Learning Quizzes, and a vibrant Muslim community feed.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "AI-Powered Content Generation",
+    "Real-time Islamic Community",
+    "Comprehensive Quran & Hadith Modules"
+  ]
+}
